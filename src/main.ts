@@ -74,7 +74,12 @@ finishGame.addEventListener('click', () => {
 })
 
 restartGameIcon.addEventListener('click', () => {
-  location.reload()
+  // location.reload()
+  squares.forEach((square) => {
+    square.firstElementChild?.remove()
+    square.addEventListener('click', handleClickSquare, { once: true })
+  })
+  playerTurn = players.player1.name
 })
 
 //* Mostrar mensagem de erro
