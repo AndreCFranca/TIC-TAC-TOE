@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/global.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>TIC TAC TOE</title>
+  </head>
+  <body>
+    <h1>Jogo da velha</h1>
+    <div class="btn-start-container">
+      <button type="submit" class="start-btn" id="btn-init">Iniciar</button>
+      <button type="submit" class="finish-btn" id="btn-finish">Encerrar</button>
+    </div>
+
+    <dialog id="modal" class="modal">
+      <h1 class="modal-title">Bem vindo ao jogo da velha !</h1>
+
+      <form id="form-game">
+        <h2 class="form-title">Defina o nome dos jogadores</h2>
+
+        <div class="input-container">
+          <label for="player-1">Jogador 1 (X):</label>
+          <input id="player-1" type="text" />
+        </div>
+
+        <div class="input-container">
+          <label for="player-2">Jogador 2 (O):</label>
+          <input id="player-2" type="text" />
+        </div>
+
+        <span class="form-error" id="form-error"></span>
+
+        <button type="submit" class="form-btn" id="btn-start">Iniciar</button>
+        <button type="submit" class="close-btn" id="btn-close">Fechar</button>
+      </form>
+    </dialog>
+
+    <dialog id="modal-result" class="modal-result">
+      <h3 class="modal-title-result">O vencedor da rodada é:</h3>
+      <p class="name-winner" id="game-win-playerName"></p>
+      <button type="submit" class="restart-btn" id="btn-game-restart">
+        Reiniciar
+      </button>
+      <button type="submit" class="result-close-btn" id="btn-result-close">
+        Fechar
+      </button>
+    </dialog>
+
+    <main class="container">
+      <div class="game">
+        <span class="restart-icon" id="restart-game-icon">
+          <i class="ri-restart-line"></i>
+        </span>
+        <h2 class="game_title">
+          É a vez de:
+          <span id="game-playerName"></span>
+        </h2>
+
+        <div class="game_board">
+          <div class="game_board-square" data-square=""></div>
+          <div class="game_board-square" data-square=""></div>
+          <div class="game_board-square" data-square=""></div>
+          <div class="game_board-square" data-square=""></div>
+          <div class="game_board-square" data-square=""></div>
+          <div class="game_board-square" data-square=""></div>
+          <div class="game_board-square" data-square=""></div>
+          <div class="game_board-square" data-square=""></div>
+          <div class="game_board-square" data-square=""></div>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

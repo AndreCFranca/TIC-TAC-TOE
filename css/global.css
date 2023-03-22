@@ -1,0 +1,417 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  color: var(--font-color);
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-color);
+}
+
+h1 {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: none;
+  color: var(--font-color);
+}
+
+:root {
+  --bg-color: #212529;
+  --border-color: #666;
+  --font-color: #f1f5f9;
+  --primary-color: #06b649;
+  --error-color: #ff0043;
+}
+
+.btn-start-container {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  gap: 40px;
+  margin-top: 5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.start-btn {
+  cursor: pointer;
+  border: 0.1rem solid;
+  background: var(--primary-color);
+  font-size: 1.4rem;
+  padding: 2rem 2rem;
+  border-radius: 0.4rem;
+  transition: 200ms;
+  color: var(--font-color);
+  border-color: transparent;
+}
+
+.finish-btn {
+  cursor: pointer;
+  border: 0.1rem solid;
+  background: var(--primary-color);
+  font-size: 1.4rem;
+  padding: 2rem 2rem;
+  border-radius: 0.4rem;
+  transition: 200ms;
+  color: var(--font-color);
+  border-color: transparent;
+}
+
+.container {
+  margin-top: -10rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(275px, 500px);
+  align-items: center;
+  justify-content: center;
+  margin-inline: 2.4rem;
+}
+
+.modal {
+  margin: auto;
+  margin-top: 26rem;
+  padding: 2rem;
+  border-radius: 0.6rem;
+  border-color: var(--primary-color);
+  background: var(--bg-color);
+  color: var(--font-color);
+  text-align: center;
+}
+
+.modal::backdrop {
+  background: var(--primary-color);
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-top: 1rem;
+  margin-bottom: 1.6rem;
+  color: var(--font-color);
+}
+
+.modal-result {
+  margin: auto;
+  padding: 2rem;
+  border-radius: 0.6rem;
+  border-color: var(--primary-color);
+  background: var(--bg-color);
+  color: var(--font-color);
+  text-align: center;
+}
+.modal-result::backdrop {
+  background: var(--primary-color);
+}
+.modal-title-result {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--font-color);
+}
+
+.name-winner {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 30px;
+}
+.restart-btn,
+.result-close-btn {
+  border: 0.1rem solid #ccc;
+  background: var(--primary-color);
+  font-size: 1.4rem;
+  padding: 1rem 1rem;
+  border-radius: 0.4rem;
+  transition: 200ms;
+}
+
+.ri-close-line,
+.ri-checkbox-blank-circle-line {
+  display: grid;
+  place-items: center;
+  margin-top: 1rem;
+  color: var(--bg-color);
+  font-size: 5rem;
+}
+
+.ri-checkbox-blank-circle-line {
+  color: var(--font-color);
+}
+.restart-icon {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -20px;
+}
+
+.ri-restart-line {
+  font-size: 25px;
+}
+
+@media screen and (max-width: 800px) {
+  .modal {
+    margin-bottom: 10rem;
+  }
+}
+.form-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+  color: var(--font-color);
+}
+
+.input-container {
+  margin-bottom: 1.2rem;
+}
+
+.input-container label,
+.input-container input {
+  display: block;
+}
+
+.input-container label {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.input-container input {
+  padding: 0.6rem 1.2rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  outline: none;
+  background: hsl(0, 0%, 84%);
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.input-container input:hover,
+.input-container input:focus {
+  background: initial;
+  border-color: var(--primary-color);
+}
+
+.form-btn {
+  border: 1px solid #ccc;
+  background: var(--primary-color);
+  font-size: 1.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  transition: 200ms;
+}
+
+.close-btn {
+  border: 0.1rem solid #ccc;
+  background: var(--primary-color);
+  font-size: 1.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  transition: 200ms;
+}
+.start-btn:hover,
+.start-btn:focus,
+.finish-btn:hover,
+.finish-btn:focus,
+.close-btn:hover,
+.close-btn:focus,
+.form-btn:focus,
+.form-btn:hover {
+  background: #56585a;
+}
+
+.form-error {
+  display: block;
+  margin-block: 1.2rem;
+  color: hsl(0, 94%, 43%);
+  text-decoration: underline;
+}
+
+.game_board-square {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 1rem;
+  background: var(--primary-color);
+}
+
+.game_board-square:hover {
+  background: #56585a;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 575px) {
+  .container {
+    margin-top: -18rem;
+  }
+
+  .start-btn,
+  .finish-btn {
+    margin: 0 auto;
+    margin-bottom: 6rem;
+    padding: 0.8rem;
+    width: 8rem;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+
+  .modal {
+    width: 30rem;
+    margin-bottom: 14rem;
+  }
+
+  .ri-close-line,
+  .ri-checkbox-blank-circle-line {
+    display: grid;
+    place-items: center;
+    padding-top: 0.4rem;
+    color: var(--bg-color);
+    font-size: 1rem;
+  }
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(275px, 500px);
+  align-items: center;
+  justify-content: center;
+  margin-inline: 2.4rem;
+}
+
+.game {
+  border: 1px solid var(--primary-color);
+  padding: 3.6rem 1.6rem;
+  border-radius: 0.4rem;
+}
+
+.game_title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.game_board {
+  display: grid;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: center;
+  gap: 1rem;
+}
+
+.game_board-square {
+  width: 8rem;
+  height: 8rem;
+  background: var(--primary-color);
+}
+
+.ri-close-line,
+.ri-checkbox-blank-circle-line {
+  display: grid;
+  place-items: center;
+  padding-top: 0.5rem;
+  color: var(--bg-color);
+  font-size: 5rem;
+}
+
+.ri-checkbox-blank-circle-line {
+  color: var(--font-color);
+}
+
+@media screen and (min-width: 575px) {
+  .game_board-square {
+    width: 10rem;
+    height: 10rem;
+  }
+  .modal {
+    width: 50rem;
+  }
+}
+@media screen and (max-width: 340px) {
+  .container {
+    margin-top: -25rem;
+  }
+  .modal {
+    width: 20rem;
+    height: 32rem;
+    margin-top: 19.5rem;
+  }
+
+  .modal-result {
+    width: 20rem;
+    height: 20rem;
+    margin-top: 10rem;
+  }
+
+  .form-btn,
+  .close-btn {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 6rem;
+    height: 4rem;
+    font-size: 1.3rem;
+  }
+
+  .modal-title {
+    font-size: 1.8rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .input-container label {
+    font-size: 1.1rem;
+  }
+
+  .game_board-square {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .ri-close-line,
+  .ri-checkbox-blank-circle-line {
+    display: grid;
+    place-items: center;
+    margin-top: 0.3rem;
+    color: var(--bg-color);
+    font-size: 4.5rem;
+  }
+
+  .ri-checkbox-blank-circle-line {
+    color: var(--font-color);
+  }
+
+  .start-btn,
+  .finish-btn {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    width: 8rem;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+
+  .form-btn,
+  .close-btn {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 6rem;
+    height: 4rem;
+    font-size: 1.3rem;
+  }
+}
