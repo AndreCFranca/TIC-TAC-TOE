@@ -39,10 +39,86 @@ button {
   --error-color: #ff0043;
 }
 
+.modal {
+  margin: auto;
+  padding: 2rem;
+  border-radius: 0.6rem;
+  border-color: var(--primary-color);
+  background: var(--bg-color);
+  color: var(--font-color);
+}
+
+.modal::backdrop {
+  background: var(--primary-color);
+  pointer-events: none;
+}
+
+.modal-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.6rem;
+  color: var(--font-color);
+}
+.form-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.6rem;
+  color: var(--font-color);
+}
+
+.input-container {
+  margin-bottom: 1.2rem;
+}
+
+.input-container label,
+.input-container input {
+  display: block;
+}
+
+.input-container label {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.input-container input {
+  padding: 0.6rem 1.2rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  outline: none;
+  background: hsl(0, 0%, 84%);
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.input-container input:hover,
+.input-container input:focus {
+  background: #fff;
+  border-color: var(--primary-color);
+}
+
+.form-btn {
+  border: 0.1rem solid #ccc;
+  background: var(--primary-color);
+  font-size: 1.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  transition: 200ms;
+}
+
+.close-btn {
+  border: 0.1rem solid #ccc;
+  background: var(--primary-color);
+  font-size: 1.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  transition: 200ms;
+}
+
 .btn-start-container {
   display: grid;
   grid-template-columns: 100px 100px;
-  gap: 40px;
+  gap: 4rem;
   margin-top: 5rem;
   align-items: center;
   justify-content: center;
@@ -83,29 +159,6 @@ button {
   margin-inline: 2.4rem;
 }
 
-.modal {
-  margin: auto;
-  margin-top: 26rem;
-  padding: 2rem;
-  border-radius: 0.6rem;
-  border-color: var(--primary-color);
-  background: var(--bg-color);
-  color: var(--font-color);
-  text-align: center;
-}
-
-.modal::backdrop {
-  background: var(--primary-color);
-}
-
-.modal-title {
-  text-align: center;
-  font-size: 2.2rem;
-  margin-top: 1rem;
-  margin-bottom: 1.6rem;
-  color: var(--font-color);
-}
-
 .modal-result {
   margin: auto;
   padding: 2rem;
@@ -117,7 +170,9 @@ button {
 }
 .modal-result::backdrop {
   background: var(--primary-color);
+  pointer-events: none;
 }
+
 .modal-title-result {
   text-align: center;
   font-size: 2.2rem;
@@ -146,7 +201,7 @@ button {
 .ri-checkbox-blank-circle-line {
   display: grid;
   place-items: center;
-  padding-top: 1.8rem;
+  margin-top: 1.8rem;
   color: var(--bg-color);
   font-size: 10rem;
 }
@@ -157,11 +212,12 @@ button {
 .restart-icon {
   display: flex;
   justify-content: flex-end;
-  margin-top: -20px;
+  margin-top: -2rem;
+  cursor: pointer;
 }
 
 .ri-restart-line {
-  font-size: 25px;
+  font-size: 2.5rem;
 }
 
 .game_board {
@@ -177,66 +233,6 @@ button {
   background: var(--primary-color);
 }
 
-@media screen and (max-width: 800px) {
-  .modal {
-    margin-bottom: 10rem;
-  }
-}
-.form-title {
-  font-size: 1.8rem;
-  margin-bottom: 1.6rem;
-  color: var(--font-color);
-}
-
-.input-container {
-  margin-bottom: 1.2rem;
-}
-
-.input-container label,
-.input-container input {
-  display: block;
-}
-
-.input-container label {
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-}
-
-.input-container input {
-  padding: 0.6rem 1.2rem;
-  width: 100%;
-  border-radius: 0.4rem;
-  outline: none;
-  background: hsl(0, 0%, 84%);
-  border: 1px solid transparent;
-  transition: 0.3s;
-}
-
-.input-container input:hover,
-.input-container input:focus {
-  background: initial;
-  border-color: var(--primary-color);
-}
-
-.form-btn {
-  border: 1px solid #ccc;
-  background: var(--primary-color);
-  font-size: 1.4rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.4rem;
-  transition: 200ms;
-}
-
-.close-btn {
-  border: 0.1rem solid #ccc;
-  background: var(--primary-color);
-  font-size: 1.4rem;
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.4rem;
-  transition: 200ms;
-}
 .start-btn:hover,
 .start-btn:focus,
 .finish-btn:hover,
@@ -267,33 +263,23 @@ button {
   cursor: pointer;
 }
 
-@media screen and (max-width: 575px) {
-  .container {
-    margin-top: -18rem;
+@media screen and (max-width: 320px) {
+  .modal-title {
+    font-size: 1.8rem;
   }
 
-  .start-btn,
-  .finish-btn {
-    margin: 0 auto;
-    margin-bottom: 6rem;
-    padding: 0.8rem;
-    width: 8rem;
-    height: 4rem;
+  .form-title {
     font-size: 1.5rem;
   }
 
-  .modal {
-    width: 30rem;
-    margin-bottom: 14rem;
+  .input-container label {
+    font-size: 1.1rem;
   }
+}
 
-  .ri-close-line,
-  .ri-checkbox-blank-circle-line {
-    display: grid;
-    place-items: center;
-    padding-top: 0.4rem;
-    color: var(--bg-color);
-    font-size: 1rem;
+@media screen and (min-width: 575px) {
+  .modal {
+    width: 50rem;
   }
 }
 
@@ -330,6 +316,85 @@ button {
   background: var(--primary-color);
 }
 
+.game_board-square:nth-child(1),
+.game_board-square:nth-child(2),
+.game_board-square:nth-child(3) {
+  border-top: none;
+}
+
+.game_board-square:nth-child(1),
+.game_board-square:nth-child(4),
+.game_board-square:nth-child(7) {
+  border-left: none;
+}
+
+.game_board-square:nth-child(7),
+.game_board-square:nth-child(8),
+.game_board-square:nth-child(9) {
+  border-bottom: none;
+}
+
+.game_board-square:nth-child(3),
+.game_board-square:nth-child(6),
+.game_board-square:nth-child(9) {
+  border-right: none;
+}
+
+@media screen and (max-width: 340px) {
+  .game_board-square {
+    width: 6rem;
+    height: 6rem;
+    font-size: 3.8rem;
+  }
+}
+
+@media screen and (min-width: 575px) {
+  .game_board-square {
+    width: 10rem;
+    height: 10rem;
+    font-size: 6.4rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .container {
+    margin-top: -18rem;
+  }
+
+  .start-btn,
+  .finish-btn {
+    margin: 0 auto;
+    margin-bottom: 6rem;
+    padding: 0.8rem;
+    width: 8rem;
+    height: 4rem;
+    font-size: 1.5rem;
+  }
+
+  .modal {
+    width: 30rem;
+    margin-bottom: 14rem;
+  }
+
+  .ri-close-line,
+  .ri-checkbox-blank-circle-line {
+    display: grid;
+    place-items: center;
+    margin-top: 0.8rem;
+    color: var(--bg-color);
+    font-size: 1rem;
+  }
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(275px, 500px);
+  align-items: center;
+  justify-content: center;
+  margin-inline: 2.4rem;
+}
+
 .ri-close-line,
 .ri-checkbox-blank-circle-line {
   display: grid;
@@ -343,15 +408,6 @@ button {
   color: var(--font-color);
 }
 
-@media screen and (min-width: 575px) {
-  .game_board-square {
-    width: 10rem;
-    height: 10rem;
-  }
-  .modal {
-    width: 50rem;
-  }
-}
 @media screen and (max-width: 340px) {
   .container {
     margin-top: -25rem;
@@ -363,9 +419,15 @@ button {
   }
 
   .modal-result {
-    width: 20rem;
-    height: 20rem;
-    margin-top: 10rem;
+    width: 25rem;
+    height: 25rem;
+    margin-top: 8rem;
+  }
+
+  .result-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
   }
 
   .form-btn,
