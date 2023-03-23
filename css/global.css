@@ -163,18 +163,6 @@ button {
   transition: 200ms;
 }
 
-.ri-close-line,
-.ri-checkbox-blank-circle-line {
-  display: grid;
-  place-items: center;
-  margin-top: 1.8rem;
-  color: var(--bg-color);
-  font-size: 10rem;
-}
-
-.ri-checkbox-blank-circle-line {
-  color: var(--font-color);
-}
 .restart-icon {
   display: flex;
   justify-content: flex-end;
@@ -197,6 +185,14 @@ button {
   width: 8rem;
   height: 8rem;
   background: var(--primary-color);
+  font-size: 6.4rem;
+  display: grid;
+  place-items: center;
+  color: #000;
+}
+
+.game_board-square .ri-checkbox-blank-circle-line {
+  color: var(--font-color);
 }
 
 .close-btn:hover,
@@ -223,26 +219,6 @@ button {
 .game_board-square:hover {
   background: #56585a;
   cursor: pointer;
-}
-
-@media screen and (max-width: 320px) {
-  .modal-title {
-    font-size: 1.8rem;
-  }
-
-  .form-title {
-    font-size: 1.5rem;
-  }
-
-  .input-container label {
-    font-size: 1.1rem;
-  }
-}
-
-@media screen and (min-width: 575px) {
-  .modal {
-    width: 50rem;
-  }
 }
 
 .game {
@@ -293,59 +269,32 @@ button {
   border-right: none;
 }
 
-@media screen and (max-width: 340px) {
-  .game_board-square {
-    width: 6rem;
-    height: 6rem;
-    font-size: 3.8rem;
-  }
-}
-
-@media screen and (min-width: 575px) {
-  .game_board-square {
-    width: 10rem;
-    height: 10rem;
-    font-size: 6.4rem;
-  }
-}
-
-@media screen and (max-width: 575px) {
-  .container {
-    margin-top: -18rem;
-  }
-}
-
 .modal {
   width: 30rem;
   margin-bottom: 14rem;
 }
 
-.ri-close-line,
-.ri-checkbox-blank-circle-line {
-  display: grid;
-  place-items: center;
-  margin-top: 0.8rem;
-  color: var(--bg-color);
-  font-size: 1rem;
-}
+@media screen and (max-width: 320px) {
+  .game_board-square {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2.8rem;
+  }
 
-.ri-close-line,
-.ri-checkbox-blank-circle-line {
-  display: grid;
-  place-items: center;
-  padding-top: 0.5rem;
-  color: var(--bg-color);
-  font-size: 5rem;
-}
+  .modal-title {
+    font-size: 1.8rem;
+  }
 
-.ri-checkbox-blank-circle-line {
-  color: var(--font-color);
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .input-container label {
+    font-size: 1.1rem;
+  }
 }
 
 @media screen and (max-width: 340px) {
-  .container {
-    margin-top: -25rem;
-  }
   .modal {
     width: 20rem;
     height: 32rem;
@@ -391,18 +340,6 @@ button {
     height: 6rem;
   }
 
-  .ri-close-line,
-  .ri-checkbox-blank-circle-line {
-    display: grid;
-    place-items: center;
-    margin-top: 0.3rem;
-    color: var(--bg-color);
-    font-size: 4.5rem;
-  }
-
-  .ri-checkbox-blank-circle-line {
-    color: var(--font-color);
-  }
   .form-btn,
   .close-btn {
     margin: 0 auto;
@@ -411,5 +348,23 @@ button {
     width: 6rem;
     height: 4rem;
     font-size: 1.3rem;
+  }
+
+  .game_board-square {
+    width: 6rem;
+    height: 6rem;
+    font-size: 3.8rem;
+  }
+}
+
+@media screen and (min-width: 575px) {
+  .modal {
+    width: 50rem;
+  }
+
+  .game_board-square {
+    width: 10rem;
+    height: 10rem;
+    font-size: 6.4rem;
   }
 }
