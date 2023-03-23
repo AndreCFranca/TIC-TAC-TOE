@@ -1,4 +1,3 @@
-const buttonInit = document.querySelector('#btn-init') as HTMLButtonElement
 const modal = document.querySelector('#modal') as HTMLDialogElement
 const formModal = document.querySelector('#form-game') as HTMLFormElement
 const player1Input = document.querySelector('#player-1') as HTMLInputElement
@@ -8,7 +7,6 @@ const closeModal = document.querySelector('#btn-close') as HTMLButtonElement
 const restartGame = document.querySelector(
   '#btn-game-restart'
 ) as HTMLButtonElement
-const finishGame = document.querySelector('#btn-finish') as HTMLButtonElement
 const playerNameTarget = document.querySelector(
   '#game-playerName'
 ) as HTMLSpanElement
@@ -48,13 +46,9 @@ const players = {
   },
 }
 
-//* Abre o modal através do botão
-
-buttonInit.addEventListener('click', () => {
+window.addEventListener('DOMContentLoaded', () => {
   modal.showModal()
 })
-
-//* Fecha modal através do botão
 
 closeModal.addEventListener('click', () => {
   modal.close()
@@ -67,10 +61,6 @@ restartGame.addEventListener('click', () => {
 
 closeResultModal.addEventListener('click', () => {
   resultModal.close()
-})
-
-finishGame.addEventListener('click', () => {
-  window.close()
 })
 
 restartGameIcon.addEventListener('click', () => {
