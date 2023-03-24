@@ -1,26 +1,17 @@
-const modal = document.querySelector('#modal') as HTMLDialogElement
-const formModal = document.querySelector('#form-game') as HTMLFormElement
-const player1Input = document.querySelector('#player-1') as HTMLInputElement
-const player2Input = document.querySelector('#player-2') as HTMLInputElement
-const messageError = document.querySelector('#form-error') as HTMLSpanElement
-const closeModal = document.querySelector('#btn-close') as HTMLButtonElement
-const restartGame = document.querySelector(
-  '#btn-game-restart'
-) as HTMLButtonElement
-const playerNameTarget = document.querySelector(
-  '#game-playerName'
-) as HTMLSpanElement
-const squares = document.querySelectorAll<HTMLDivElement>('[data-square]')
-const restartGameIcon = document.querySelector(
-  '#restart-game-icon'
-) as HTMLSpanElement
-const resultModal = document.querySelector('#modal-result') as HTMLDialogElement
-const playerNameResultTarget = document.querySelector(
-  '#game-win-playerName'
-) as HTMLParagraphElement
-const closeResultModal = document.querySelector(
-  '#btn-result-close'
-) as HTMLButtonElement
+import {
+  closeModal,
+  closeResultModal,
+  formModal,
+  messageError,
+  modal,
+  player1Input,
+  player2Input,
+  playerNameResultTarget,
+  playerNameTarget,
+  restartGame,
+  resultModal,
+  squares,
+} from './constants'
 
 let playerTurn = ''
 
@@ -51,26 +42,25 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 closeModal.addEventListener('click', () => {
-  modal.close()
+  window.close()
 })
 
 restartGame.addEventListener('click', () => {
-  location.reload()
+  clearGame()
   resultModal.close()
 })
 
 closeResultModal.addEventListener('click', () => {
-  resultModal.close()
+  window.close()
 })
 
-restartGameIcon.addEventListener('click', () => {
-  // location.reload()
+const clearGame = () => {
   squares.forEach((square) => {
     square.firstElementChild?.remove()
     square.addEventListener('click', handleClickSquare, { once: true })
   })
   playerTurn = players.player1.name
-})
+}
 
 //* Mostrar mensagem de erro
 
@@ -100,9 +90,9 @@ formModal.addEventListener('submit', (event) => {
   })
 })
 
-function modalScore() {
+function modalScore(message?: string) {
   resultModal.show()
-  playerNameResultTarget.innerText = playerTurn
+  playerNameResultTarget.innerText = message ? message : playerTurn
 }
 
 function handleClickSquare(this: HTMLDivElement) {
@@ -134,6 +124,30 @@ function handleClickSquare(this: HTMLDivElement) {
     playerTurn = players.player1.name
     playerNameTarget.innerText = playerTurn
   }
+
+  const isOver = checkItIsOver()
+  if (isOver) {
+    modalScore('Ninguém. Pois deu velha :(')
+    return
+  }
+}
+
+const checkItIsOver = () => {
+  const totalSquares = squares.length
+  let countMarked = 0
+
+  squares.forEach((square) => {
+    const marked = !!square.firstElementChild
+    if (marked) {
+      countMarked++
+    }
+  })
+
+  if (countMarked === totalSquares) {
+    return true
+  }
+
+  return false
 }
 
 const checkForWin = (currentPlayer: string) => {
