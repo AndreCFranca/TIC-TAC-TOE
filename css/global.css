@@ -117,6 +117,7 @@ button {
 }
 
 .container {
+  min-height: 100vh;
   margin: auto;
   display: grid;
   grid-template-columns: minmax(275px, 500px);
